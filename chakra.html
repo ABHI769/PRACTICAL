@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Alignment | Professional Harmonization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Raleway:wght@300;400;500&display=swap');
+        
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+        .animate-pulse-ring {
+            animation: pulse-ring 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; }
+    </style>
+</head>
+<body class="bg-[#05030a] text-slate-200 min-h-screen relative overflow-x-hidden selection:bg-purple-500/30 font-['Raleway',sans-serif] antialiased">
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-indigo-900/10 rounded-full blur-[120px] mix-blend-screen opacity-70"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-purple-900/10 rounded-full blur-[120px] mix-blend-screen opacity-70"></div>
+        <div class="absolute top-[30%] left-[50%] -translate-x-1/2 w-[40vw] h-[80vh] bg-blue-900/5 rounded-full blur-[100px] mix-blend-screen opacity-50"></div>
+    </div>
+
+    <nav class="fixed top-0 inset-x-0 z-40 bg-[#05030a]/80 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-6 h-16 flex items-center justify-between max-w-6xl">
+            <a href="#" class="font-['Cinzel',serif] text-base font-semibold tracking-tighter text-white flex items-center gap-2 hover:text-purple-400 transition-colors">
+                <iconify-icon icon="solar:infinity-linear" class="text-xl text-purple-400"></iconify-icon>
+                C.A.
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#philosophy" class="text-xs font-medium tracking-widest uppercase text-slate-400 hover:text-white transition-colors">Philosophy</a>
+                <a href="#system" class="text-xs font-medium tracking-widest uppercase text-slate-400 hover:text-white transition-colors">The Map</a>
+                <a href="#practices" class="text-xs font-medium tracking-widest uppercase text-slate-400 hover:text-white transition-colors">Practices</a>
+            </div>
+
+            <a href="#system" class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-medium tracking-widest uppercase text-white hover:bg-white/10 hover:border-purple-500/50 transition-all flex items-center gap-2">
+                Begin Journey
+                <iconify-icon icon="solar:arrow-right-linear" class="text-sm"></iconify-icon>
+            </a>
+        </div>
+    </nav>
+
+    <div id="modal-overlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#020106]/80 backdrop-blur-xl opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeModal(event)">
+        <div id="modal-card" class="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto no-scrollbar bg-[#0a0714]/95 border border-white/10 rounded-3xl p-8 sm:p-10 transform translate-y-8 scale-95 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] opacity-0 shadow-2xl shadow-purple-900/20">
+            
+            <div id="modal-accent-bar" class="absolute top-0 left-0 right-0 h-1 bg-white transition-colors duration-300"></div>
+            
+            <button onclick="closeModalBtn()" title="Close modal" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-200">
+                <iconify-icon icon="solar:close-circle-linear" class="text-xl"></iconify-icon>
+            </button>
+
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-8 mt-2">
+                <div id="modal-circle" class="w-20 h-20 rounded-full flex items-center justify-center shrink-0 font-['Cinzel',serif] text-xs font-semibold text-white tracking-wider shadow-lg"></div>
+                <div>
+                    <h2 id="modal-title" class="font-['Cinzel',serif] text-2xl sm:text-3xl font-semibold text-white tracking-tight mb-1"></h2>
+                    <div id="modal-subtitle" class="text-xs text-slate-400 tracking-widest uppercase font-medium"></div>
+                </div>
+            </div>
+
+            <p id="modal-description" class="text-sm sm:text-base leading-relaxed text-slate-300 font-light mb-8"></p>
+
+            <div class="space-y-8">
+                <div>
+                    <h3 class="font-['Cinzel',serif] text-xs font-semibold tracking-widest uppercase text-slate-500 mb-4">Key Properties</h3>
+                    <div id="modal-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
+                </div>
+
+                <div id="modal-balance-section">
+                    <h3 class="font-['Cinzel',serif] text-xs font-semibold tracking-widest uppercase text-slate-500 mb-4">Balance States</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="bg-green-500/5 border border-green-500/20 rounded-2xl p-4">
+                            <div class="text-xs tracking-widest uppercase text-green-400 mb-2 flex items-center gap-2">
+                                <iconify-icon icon="solar:check-circle-linear"></iconify-icon> Balanced
+                            </div>
+                            <div id="modal-balance-good" class="text-sm text-green-100/80 font-light leading-relaxed"></div>
+                        </div>
+                        <div class="bg-red-500/5 border border-red-500/20 rounded-2xl p-4">
+                            <div class="text-xs tracking-widest uppercase text-red-400 mb-2 flex items-center gap-2">
+                                <iconify-icon icon="solar:danger-circle-linear"></iconify-icon> Imbalanced
+                            </div>
+                            <div id="modal-balance-bad" class="text-sm text-red-100/80 font-light leading-relaxed"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="modal-howto-section">
+                    <h3 class="font-['Cinzel',serif] text-xs font-semibold tracking-widest uppercase text-slate-500 mb-4">Harmonization Practices</h3>
+                    <div id="modal-howto-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+                </div>
+
+                <div>
+                    <h3 class="font-['Cinzel',serif] text-xs font-semibold tracking-widest uppercase text-slate-500 mb-4">Associated Frequencies</h3>
+                    <div id="modal-tags" class="flex flex-wrap gap-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="relative z-10 min-h-screen flex items-center justify-center pt-20 pb-12">
+        <div class="container mx-auto px-6 max-w-4xl text-center flex flex-col items-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-xs text-purple-300 font-medium tracking-wide mb-8">
+                <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
+                Discover Your Inner Constellation
+            </div>
+            
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-['Cinzel',serif] font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-white/90 to-slate-500 pb-4 mb-6 leading-tight">
+                Harmonize Your<br>Universal Frequency
+            </h1>
+            
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed mb-12">
+                A professional framework for understanding and aligning your seven energy centers. Achieve profound balance, clarity, and universal resonance.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+                <a href="#system" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-black text-sm font-semibold tracking-wide hover:bg-slate-200 transition-colors flex items-center justify-center gap-2">
+                    Explore The Map
+                    <iconify-icon icon="solar:routing-linear" class="text-lg"></iconify-icon>
+                </a>
+                <a href="#philosophy" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white text-sm font-medium tracking-wide hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+                    Our Philosophy
+                </a>
+            </div>
+        </div>
+        
+        <a href="#philosophy" class="absolute bottom-12 left-1/2 -translate-x-1/2 text-slate-500 hover:text-white transition-colors flex flex-col items-center gap-2">
+            <span class="text-[10px] tracking-widest uppercase font-semibold">Scroll</span>
+            <iconify-icon icon="solar:mouse-circle-linear" class="text-2xl animate-bounce"></iconify-icon>
+        </a>
+    </section>
+
+    <section id="philosophy" class="relative z-10 py-32 border-t border-white/5 bg-gradient-to-b from-transparent to-[#0a0714]/50">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-4xl font-['Cinzel',serif] font-semibold tracking-tight text-white mb-4">The Triad of Alignment</h2>
+                <p class="text-sm md:text-base text-slate-400 max-w-2xl mx-auto font-light">Understanding the delicate balance between the physical, mental, and ethereal planes is the first step toward complete holistic mastery.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white/[0.02] border border-white/5 rounded-3xl p-8 hover:bg-white/[0.04] hover:border-white/10 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20 mb-6 group-hover:scale-110 transition-transform">
+                        <iconify-icon icon="solar:sun-fog-linear" class="text-2xl text-indigo-400"></iconify-icon>
+                    </div>
+                    <h3 class="font-['Cinzel',serif] text-xl font-medium tracking-tight text-white mb-3">Conscious Awakening</h3>
+                    <p class="text-sm text-slate-400 font-light leading-relaxed">Elevate your awareness and begin to perceive the subtle energies that influence your daily decisions, mood, and overall life path.</p>
+                </div>
+                <div class="bg-white/[0.02] border border-white/5 rounded-3xl p-8 hover:bg-white/[0.04] hover:border-white/10 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-500/10 flex items-center justify-center border border-purple-500/20 mb-6 group-hover:scale-110 transition-transform">
+                        <iconify-icon icon="solar:scale-linear" class="text-2xl text-purple-400"></iconify-icon>
+                    </div>
+                    <h3 class="font-['Cinzel',serif] text-xl font-medium tracking-tight text-white mb-3">Energetic Equilibrium</h3>
+                    <p class="text-sm text-slate-400 font-light leading-relaxed">Identify overactive or blocked centers. Apply targeted harmonization techniques to restore a state of natural flow and balance.</p>
+                </div>
+                <div class="bg-white/[0.02] border border-white/5 rounded-3xl p-8 hover:bg-white/[0.04] hover:border-white/10 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center border border-blue-500/20 mb-6 group-hover:scale-110 transition-transform">
+                        <iconify-icon icon="solar:star-fall-minimalistic-linear" class="text-2xl text-blue-400"></iconify-icon>
+                    </div>
+                    <h3 class="font-['Cinzel',serif] text-xl font-medium tracking-tight text-white mb-3">Infinite Integration</h3>
+                    <p class="text-sm text-slate-400 font-light leading-relaxed">Merge the practices into your everyday professional and personal life, creating a sustainable foundation for long-term growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="system" class="relative z-10 py-32 border-t border-white/5">
+        <div class="container mx-auto px-6 max-w-5xl">
+
+            <div class="text-center mb-32 space-y-6 flex flex-col items-center">
+                <div class="text-xs text-slate-500 tracking-widest uppercase font-medium flex items-center gap-2 mb-2">
+                    <iconify-icon icon="solar:map-point-linear" class="text-lg"></iconify-icon>
+                    Interactive Map
+                </div>
+                <h2 class="text-4xl md:text-5xl font-['Cinzel',serif] font-semibold tracking-tight text-white">
+                    The Seven Centers
+                </h2>
+                <p class="text-base md:text-lg text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
+                    Select a center below to view its properties, diagnose imbalances, and discover specific practices for harmonization.
+                </p>
+            </div>
+
+            <div class="relative max-w-3xl mx-auto">
+                <div class="absolute left-1/2 -translate-x-1/2 top-12 bottom-12 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent">
+                    <div class="absolute top-0 bottom-0 w-full bg-gradient-to-b from-purple-500/0 via-cyan-400/20 to-red-500/0 blur-[2px]"></div>
+                </div>
+
+                <div class="md:space-y-16 space-y-24">
+                    <div class="relative flex flex-col md:flex-row items-center justify-center group w-full">
+                        <div class="w-full md:w-5/12 flex justify-center md:justify-end md:pr-12 order-2 md:order-1 mt-6 md:mt-0 opacity-80 group-hover:opacity-100 transition-opacity">
+                            <div class="text-center md:text-right">
+                                <h3 class="text-xl md:text-2xl font-['Cinzel',serif] font-medium tracking-tight text-white group-hover:text-purple-400 transition-colors">Crown</h3>
+                                <p class="text-sm text-slate-400 mt-2 font-light max-w-[260px] mx-auto md:ml-auto md:mr-0">Cosmic connection, pure spiritual awareness, and divine wisdom.</p>
+                            </div>
+                        </div>
+                        <div class="w-auto md:w-2/12 flex justify-center relative z-10 order-1 md:order-2">
+                            <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full flex flex-col items-center justify-center shrink-0 cursor-pointer transition-all duration-500 ease-out hover:scale-110 active:scale-95 bg-[#a855f7] shadow-[0_0_50px_rgba(168,85,247,0.5)] border border-purple-300/30 group/circle" onclick="openModal('sahasrara')">
+                                <div class="absolute inset-[-4px] rounded-full border border-purple-400/30 animate-pulse-ring"></div>
+                                <div class="absolute top-3 w-10 h-10 rounded-full bg-white/40 blur-md pointer-events-none"></div>
+                                <span class="font-['Cinzel',serif] text-xs font-semibold text-white tracking-widest z-10 drop-shadow-md">Sahasrara</span>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-5/12 flex justify-start md:pl-12 hidden md:flex order-3 opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
+                            <div class="p-3 rounded-2xl bg-white/[0.03] border border-white/5 backdrop-blur-sm">
+                                <iconify-icon icon="solar:stars-minimalistic-linear" class="text-2xl text-purple-400/70"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative flex flex-col md:flex-row items-center justify-center group w-full">
+                        <div class="w-full md:w-5/12 flex justify-end md:pr-12 hidden md:flex order-1 opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
+                            <div class="p-3 rounded-2xl bg-white/[0.03] border border-white/5 backdrop-blur-sm">
+                                <iconify-icon icon="solar:eye-linear" class="text-2xl text-indigo-400/70"></iconify-icon>
+                            </div>
+                        </div>
+                        <div class="w-auto md:w-2/12 flex justify-center relative z-10 order-1 md:order-2">
+                            <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full flex flex-col items-center justify-center shrink-0 cursor-pointer transition-all duration-500 ease-out hover:scale-110 active:scale-95 bg-[#6366f1] shadow-[0_0_50px_rgba(99,102,241,0.5)] border border-indigo-300/30" onclick="openModal('ajna')">
+                                <div class="absolute inset-[-4px] rounded-full border border-indigo-400/30 animate-pulse-ring"></div>
+                                <div class="absolute top-3 w-10 h-10 rounded-full bg-white/40 blur-md pointer-events-none"></div>
+                                <span class="font-['Cinzel',serif] text-xs font-semibold text-white tracking-widest z-10 drop-shadow-md">Ajna</span>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-5/12 flex justify-center md:justify-start md:pl-12 order-2 md:order-3 mt-6 md:mt-0 opacity-80 group-hover:opacity-100 transition-opacity">
+                            <div class="text-center md:text-left">
+                                <h3 class="text-xl md:text-2xl font-['Cinzel',serif] font-medium tracking-tight text-white group-hover:text-indigo-400 transition-colors">Third Eye</h3>
+                                <p class="text-sm text-slate-400 mt-2 font-light max-w-[260px] mx-auto md:ml-0 md:mr-auto">Deep intuition, clarity of vision, and foresight beyond illusion.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative flex flex-col md:flex-row items-center justify-center group w-full">
+                        <div class="w-full md:w-5/12 flex justify-center md:justify-end md:pr-12 order-2 md:order-1 mt-6 md:mt-0 opacity-80 group-hover:opacity-100 transition-opacity">
+                            <div class="text-center md:text-right">
+                                <h3 class="text-xl md:text-2xl font-['Cinzel',serif] font-medium tracking-tight text-white group-hover:text-blue-400 transition-colors">Throat</h3>
+                                <p class="text-sm text-slate-400 mt-2 font-light max-w-[260px] mx-auto md:ml-auto md:mr-0">Authentic expression, clear communication, and universal truth.</p>
+                            </div>
+                        </div>
+                        <div class="w-auto md:w-2/12 flex justify-center relative z-10 order-1 md:order-2">
+                            <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full flex flex-col items-center justify-center shrink-0 cursor-pointer transition-all duration-500 ease-out hover:scale-110 active:scale-95 bg-[#60a5fa] shadow-[0_0_50px_rgba(96,165,250,0.5)] border border-blue-300/30" onclick="openModal('vishuddha')">
+                                <div class="absolute inset-[-4px] rounded-full border border-blue-400/30 animate-pulse-ring"></div>
+                                <div class="absolute top-3 w-10 h-10 rounded-full bg-white/40 blur-md pointer-events-none"></div>
+                                <span class="font-['Cinzel',serif] text-xs font-semibold text-white tracking-widest z-10 drop-shadow-md">Vishuddha</span>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-5/12 flex justify-start md:pl-12 hidden md:flex order-3 opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
+                            <div class="p-3 rounded-2xl bg-white/[0.03] border border-white/5 backdrop-blur-sm">
+                                <iconify-icon icon="solar:microphone-2-linear" class="text-2xl text-blue-400/70"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative flex flex-col md:flex-row items-center justify-center group w-full">
+                        <div class="w-full md:w-5/12 flex justify-end md:pr-12 hidden md:flex order-1 opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
+                            <div class="p-3 rounded-2xl bg-white/[0.03] border border-white/5 backdrop-blur-sm">
+                                <iconify-icon icon="solar:heart-linear" class="text-2xl text-green-400/70"></iconify-icon>
+                            </div>
+                        </div>
+                        <div class="w-auto md:w-2/12 flex justify-center relative z-10 order-1 md:order-2">
+                            <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full flex flex-col items-center justify-center shrink-0 cursor-pointer transition-all duration-500 ease-out hover:scale-110 active:scale-95 bg-[#4ade80] shadow-[0_0_50px_rgba(74,222,128,0.5)] border border-green-300/30" onclick="openModal('anahata')">
+                                <div class="absolute inset-[-4px] rounded-full border border-green-400/30 animate-pulse-ring"></div>
+                                <div class="absolute top-3 w-10 h-10 rounded-full bg-white/40 blur-md pointer-events-none"></div>
+                                <span class="font-['Cinzel',serif] text-xs font-semibold text-white tracking-widest z-10 drop-shadow-md">Anahata</span>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-5/12 flex justify-center md:justify-start md:pl-12 order-2 md:order-3 mt-6 md:mt-0 opacity-80 group-hover:opacity-100 transition-opacity">
+                            <div class="text-center md:text-left">
+                                <h3 class="text-xl md:text-2xl font-['Cinzel',serif] font-medium tracking-tight text-white group-hover:text-green-400 transition-colors">Heart</h3>
+                                <p class="text-sm text-slate-400 mt-2 font-light max-w-[260px] mx-auto md:ml-0 md:mr-auto">Infinite love, emotional balance, empathy, and profound compassion.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative flex flex-col md:flex-row items-center justify-center group w-full">
+                        <div class="w-full md:w-5/12 flex justify-center md:justify-end md:pr-12 order-2 md:order-1 mt-6 md:mt-0 opacity-80 group-hover:opacity-100 transition-opacity">
+                            <div class="text-center md:text-right">
+                                <h3 class="text-xl md:text-2xl font-['Cinzel',serif] font-medium tracking-tight text-white group-hover:text-yellow-400 transition-colors">Solar Plexus</h3>
+                                <p class="text-sm text-slate-400 mt-2 font-light max-w-[260px] mx-auto md:ml-auto md:mr-0">Personal power, conscious willpower, and transformative inner fire.</p>
+                            </div>
+                        </div>
+                        <div class="w-auto md:w-2/12 flex justify-center relative z-10 order-1 md:order-2">
+                            <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full flex flex-col items-center justify-center shrink-0 cursor-pointer transition-all duration-500 ease-out hover:scale-110 active:scale-95 bg-[#facc15] shadow-[0_0_50px_rgba(250,204,21,0.5)] border border-yellow-300/30" onclick="openModal('manipura')">
+                                <div class="absolute inset-[-4px] rounded-full border border-yellow-400/30 animate-pulse-ring"></div>
+                                <div class="absolute top-3 w-10 h-10 rounded-full bg-white/40 blur-md pointer-events-none"></div>
+                                <span class="font-['Cinzel',serif] text-xs font-semibold text-white tracking-widest z-10 drop-shadow-md">Manipura</span>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-5/12 flex justify-start md:pl-12 hidden md:flex order-3 opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
+                            <div class="p-3 rounded-2xl bg-white/[0.03] border border-white/5 backdrop-blur-sm">
+                                <iconify-icon icon="solar:sun-linear" class="text-2xl text-yellow-400/70"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative flex flex-col md:flex-row items-center justify-center group w-full">
+                        <div class="w-full md:w-5/12 flex justify-end md:pr-12 hidden md:flex order-1 opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
+                            <div class="p-3 rounded-2xl bg-white/[0.03] border border-white/5 backdrop-blur-sm">
+                                <iconify-icon icon="solar:fire-linear" class="text-2xl text-orange-400/70"></iconify-icon>
+                            </div>
+                        </div>
+                        <div class="w-auto md:w-2/12 flex justify-center relative z-10 order-1 md:order-2">
+                            <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full flex flex-col items-center justify-center shrink-0 cursor-pointer transition-all duration-500 ease-out hover:scale-110 active:scale-95 bg-[#f97316] shadow-[0_0_50px_rgba(249,115,22,0.5)] border border-orange-300/30" onclick="openModal('svadhisthana')">
+                                <div class="absolute inset-[-4px] rounded-full border border-orange-400/30 animate-pulse-ring"></div>
+                                <div class="absolute top-3 w-10 h-10 rounded-full bg-white/40 blur-md pointer-events-none"></div>
+                                <span class="font-['Cinzel',serif] text-[10px] sm:text-xs font-semibold text-white tracking-widest z-10 drop-shadow-md">Svadhisthana</span>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-5/12 flex justify-center md:justify-start md:pl-12 order-2 md:order-3 mt-6 md:mt-0 opacity-80 group-hover:opacity-100 transition-opacity">
+                            <div class="text-center md:text-left">
+                                <h3 class="text-xl md:text-2xl font-['Cinzel',serif] font-medium tracking-tight text-white group-hover:text-orange-400 transition-colors">Sacral</h3>
+                                <p class="text-sm text-slate-400 mt-2 font-light max-w-[260px] mx-auto md:ml-0 md:mr-auto">Fluidity, uninhibited creativity, joy, and emotional passion.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative flex flex-col md:flex-row items-center justify-center group w-full">
+                        <div class="w-full md:w-5/12 flex justify-center md:justify-end md:pr-12 order-2 md:order-1 mt-6 md:mt-0 opacity-80 group-hover:opacity-100 transition-opacity">
+                            <div class="text-center md:text-right">
+                                <h3 class="text-xl md:text-2xl font-['Cinzel',serif] font-medium tracking-tight text-white group-hover:text-red-400 transition-colors">Root</h3>
+                                <p class="text-sm text-slate-400 mt-2 font-light max-w-[260px] mx-auto md:ml-auto md:mr-0">Grounding, physical security, instinct, and absolute stability.</p>
+                            </div>
+                        </div>
+                        <div class="w-auto md:w-2/12 flex justify-center relative z-10 order-1 md:order-2">
+                            <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full flex flex-col items-center justify-center shrink-0 cursor-pointer transition-all duration-500 ease-out hover:scale-110 active:scale-95 bg-[#ef4444] shadow-[0_0_50px_rgba(239,68,68,0.5)] border border-red-300/30" onclick="openModal('muladhara')">
+                                <div class="absolute inset-[-4px] rounded-full border border-red-400/30 animate-pulse-ring"></div>
+                                <div class="absolute top-3 w-10 h-10 rounded-full bg-white/40 blur-md pointer-events-none"></div>
+                                <span class="font-['Cinzel',serif] text-xs font-semibold text-white tracking-widest z-10 drop-shadow-md">Muladhara</span>
+                            </div>
+                        </div>
+                        <div class="md:w-5/12 flex md:pl-12 hidden md:flex order-3 md:group-hover:opacity-100 transition-opacity duration-500 opacity-0 w-full justify-start">
+                            <div class="p-3 rounded-2xl bg-white/[0.03] border border-white/5 backdrop-blur-sm">
+                                <iconify-icon icon="solar:shield-minimalistic-linear" class="text-2xl text-red-400/70"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="mt-32 pt-16 border-t border-white/5 flex flex-col items-center justify-center space-y-6">
+                <h3 class="text-xl md:text-2xl font-['Cinzel',serif] font-medium tracking-tight text-white">Full System Resonance</h3>
+                <p class="text-sm text-slate-400 font-light mb-4 text-center max-w-sm">Enable global alignment mode to visualize connected energy flow.</p>
+                
+                <label class="relative inline-flex items-center cursor-pointer group">
+                    <input type="checkbox" value="" class="sr-only peer">
+                    <div class="w-14 h-8 bg-white/5 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-slate-300 after:border-slate-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-purple-500 border border-white/10 backdrop-blur-md hover:border-white/20 transition-colors"></div>
+                    <span class="ml-4 text-sm font-medium tracking-wide text-slate-400 group-hover:text-white transition-colors uppercase">Activate</span>
+                </label>
+            </div>
+
+        </div>
+    </section>
+    <section id="practices" class="relative z-10 py-32 border-t border-white/5">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
+                <div class="max-w-xl">
+                    <h2 class="text-3xl md:text-4xl font-['Cinzel',serif] font-semibold tracking-tight text-white mb-4">Daily Integration</h2>
+                    <p class="text-sm md:text-base text-slate-400 font-light">Transform theoretical alignment into tangible daily practices. A harmonious energy system requires consistent, deliberate action.</p>
+                </div>
+                <a href="#" class="text-xs font-semibold tracking-widest uppercase text-white hover:text-purple-400 transition-colors flex items-center gap-2 pb-2">
+                    View All Guides <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="md:col-span-2 bg-gradient-to-br from-white/[0.04] to-transparent border border-white/10 rounded-3xl p-8 sm:p-12 relative overflow-hidden group hover:border-white/20 transition-colors">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 blur-[80px] rounded-full pointer-events-none group-hover:bg-purple-500/20 transition-colors"></div>
+                    <iconify-icon icon="solar:soundwave-linear" class="text-3xl text-purple-400 mb-6"></iconify-icon>
+                    <h3 class="font-['Cinzel',serif] text-2xl font-medium tracking-tight text-white mb-4">Somatic Sound Bathing</h3>
+                    <p class="text-sm sm:text-base text-slate-400 font-light leading-relaxed max-w-md mb-8">Utilize targeted solfeggio frequencies to physically resonate with your blocked energy centers. This professional guided module takes you through a 45-minute harmonic realignment.</p>
+                    <button class="px-5 py-2.5 rounded-full bg-white/10 border border-white/20 text-xs font-medium tracking-wide text-white hover:bg-white hover:text-black transition-colors">
+                        Begin Session
+                    </button>
+                </div>
+                <div class="bg-white/[0.02] border border-white/5 rounded-3xl p-8 hover:bg-white/[0.04] hover:border-white/10 transition-colors flex flex-col justify-between">
+                    <div>
+                        <iconify-icon icon="solar:leaf-linear" class="text-2xl text-green-400 mb-6"></iconify-icon>
+                        <h3 class="font-['Cinzel',serif] text-xl font-medium tracking-tight text-white mb-3">Grounding Rituals</h3>
+                        <p class="text-sm text-slate-400 font-light leading-relaxed mb-6">Reconnect your Root and Sacral centers to physical reality through structured somatic movements.</p>
+                    </div>
+                    <a href="#" class="text-xs font-medium tracking-widest uppercase text-slate-500 hover:text-white transition-colors flex items-center gap-2 mt-auto">
+                        Read Guide <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+                    </a>
+                </div>
+                <div class="bg-white/[0.02] border border-white/5 rounded-3xl p-8 hover:bg-white/[0.04] hover:border-white/10 transition-colors flex flex-col justify-between">
+                    <div>
+                        <iconify-icon icon="solar:pen-linear" class="text-2xl text-blue-400 mb-6"></iconify-icon>
+                        <h3 class="font-['Cinzel',serif] text-xl font-medium tracking-tight text-white mb-3">Expressive Release</h3>
+                        <p class="text-sm text-slate-400 font-light leading-relaxed mb-6">Unblock your Throat center with specific journaling prompts designed for emotional clarity.</p>
+                    </div>
+                    <a href="#" class="text-xs font-medium tracking-widest uppercase text-slate-500 hover:text-white transition-colors flex items-center gap-2 mt-auto">
+                        View Prompts <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+                    </a>
+                </div>
+                
+                <div class="md:col-span-2 bg-white/[0.02] border border-white/5 rounded-3xl p-8 hover:bg-white/[0.04] hover:border-white/10 transition-colors flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                    <div class="flex items-center gap-6">
+                        <div class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                            <iconify-icon icon="solar:calendar-linear" class="text-2xl text-slate-300"></iconify-icon>
+                        </div>
+                        <div>
+                            <h3 class="font-['Cinzel',serif] text-xl font-medium tracking-tight text-white mb-1">Book a 1-on-1 Consultation</h3>
+                            <p class="text-sm text-slate-400 font-light">Work directly with a master alignment guide.</p>
+                        </div>
+                    </div>
+                    <button class="px-6 py-3 rounded-full bg-white text-black text-xs font-semibold tracking-wide hover:bg-slate-200 transition-colors shrink-0 w-full sm:w-auto">
+                        Schedule Call
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="border-t border-white/5 bg-[#030206] relative z-10 pt-20 pb-10">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="md:col-span-1">
+                    <a href="#" class="font-['Cinzel',serif] text-lg font-semibold tracking-tighter text-white flex items-center gap-2 mb-4">
+                        <iconify-icon icon="solar:infinity-linear" class="text-2xl text-purple-400"></iconify-icon>
+                        C.A.
+                    </a>
+                    <p class="text-sm text-slate-500 font-light leading-relaxed max-w-xs">
+                        A modern, professional framework for understanding the subtle anatomy of the human energetic system.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xs font-semibold tracking-widest uppercase text-white mb-6">Platform</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#system" class="text-sm text-slate-500 hover:text-purple-400 transition-colors">The Map</a></li>
+                        <li><a href="#practices" class="text-sm text-slate-500 hover:text-purple-400 transition-colors">Integration</a></li>
+                        <li><a href="#" class="text-sm text-slate-500 hover:text-purple-400 transition-colors">Masterclasses</a></li>
+                        <li><a href="#" class="text-sm text-slate-500 hover:text-purple-400 transition-colors">Consultations</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-semibold tracking-widest uppercase text-white mb-6">Resources</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#philosophy" class="text-sm text-slate-500 hover:text-purple-400 transition-colors">Philosophy</a></li>
+                        <li><a href="#" class="text-sm text-slate-500 hover:text-purple-400 transition-colors">Journal</a></li>
+                        <li><a href="#" class="text-sm text-slate-500 hover:text-purple-400 transition-colors">Frequency Library</a></li>
+                        <li><a href="#" class="text-sm text-slate-500 hover:text-purple-400 transition-colors">Community</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-semibold tracking-widest uppercase text-white mb-6">Connect</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-sm text-slate-500 hover:text-purple-400 transition-colors">Contact Support</a></li>
+                        <li><a href="#" class="text-sm text-slate-500 hover:text-purple-400 transition-colors">Twitter (X)</a></li>
+                        <li><a href="#" class="text-sm text-slate-500 hover:text-purple-400 transition-colors">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="text-xs text-slate-600 font-medium tracking-widest uppercase">
+                    © Cosmic Alignment Inc.
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="text-xs text-slate-600 hover:text-white transition-colors">Privacy</a>
+                    <a href="#" class="text-xs text-slate-600 hover:text-white transition-colors">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const chakras = {
+            sahasrara: {
+                name: 'Sahasrara',
+                subtitle: 'Crown Chakra · 7th Energy Center',
+                color: '#a855f7',
+                shadow: 'rgba(168,85,247,0.4)',
+                description: 'Sahasrara, the Crown Chakra, is the highest energy center — the seat of pure consciousness. It connects you to the infinite universe, divine wisdom, and the experience of oneness beyond the ego. When awakened, it dissolves the illusion of separation and opens a direct channel to cosmic intelligence.',
+                grid: [
+                    { label: 'Element', value: 'Thought' },
+                    { label: 'Location', value: 'Crown' },
+                    { label: 'Mantra', value: 'OM (AUM)' },
+                    { label: 'Frequency', value: '963 Hz' },
+                ],
+                tags: ['Enlightenment', 'Unity', 'Divine Wisdom', 'Pure Consciousness', 'Transcendence'],
+                balance: {
+                    good: 'Inner peace, profound higher awareness, feeling deeply connected to the universe and purpose.',
+                    bad: 'Spiritual disconnection, persistent confusion, apathy, and a lack of clear life purpose.'
+                },
+                howTo: [
+                    'Deep meditation and complete silence',
+                    'Immersive time in natural landscapes',
+                    'Consistent mindfulness practices',
+                    'Dedicated spiritual or philosophical study'
+                ]
+            },
+            ajna: {
+                name: 'Ajna',
+                subtitle: 'Third Eye Chakra · 6th Energy Center',
+                color: '#6366f1',
+                shadow: 'rgba(99,102,241,0.4)',
+                description: 'Ajna governs inner vision — perception that goes far beyond the physical senses. It is the center of intuition, imagination, and clairvoyance. A balanced Ajna allows you to see beyond illusion, trust your inner knowing, and perceive the deeper patterns woven into reality.',
+                grid: [
+                    { label: 'Element', value: 'Light' },
+                    { label: 'Location', value: 'Brow' },
+                    { label: 'Mantra', value: 'SHAM' },
+                    { label: 'Frequency', value: '852 Hz' },
+                ],
+                tags: ['Intuition', 'Clairvoyance', 'Imagination', 'Perception', 'Clarity'],
+                balance: {
+                    good: 'Strong intuitive sense, mental clarity, active imagination, and visionary insights.',
+                    bad: 'Chronic confusion, lack of focus, severe overthinking, and feeling "stuck" in the mundane.'
+                },
+                howTo: [
+                    'Guided visualization meditations',
+                    'Intentional dream journaling',
+                    'Drastically reducing screen time before sleep',
+                    'Exercises to actively trust your gut feelings'
+                ]
+            },
+            vishuddha: {
+                name: 'Vishuddha',
+                subtitle: 'Throat Chakra · 5th Energy Center',
+                color: '#60a5fa',
+                shadow: 'rgba(96,165,250,0.4)',
+                description: 'Vishuddha is the center of communication, authentic self-expression, and truth. It governs our ability to speak with clarity and integrity. When open, it empowers honest dialogue, creative voice, and the courage to express your innermost truths without fear of judgment.',
+                grid: [
+                    { label: 'Element', value: 'Ether' },
+                    { label: 'Location', value: 'Throat' },
+                    { label: 'Mantra', value: 'HAM' },
+                    { label: 'Frequency', value: '741 Hz' },
+                ],
+                tags: ['Communication', 'Truth', 'Self-Expression', 'Sound', 'Listening'],
+                balance: {
+                    good: 'Clear verbal expression, radical honesty, and being an excellent, empathetic listener.',
+                    bad: 'Difficulty speaking up, overwhelming fear of judgment, and habitual dishonesty or gossiping.'
+                },
+                howTo: [
+                    'Singing, chanting, or humming',
+                    'Practicing speaking your truth aloud',
+                    'Stream-of-consciousness journaling',
+                    'Mindful listening without interrupting'
+                ]
+            },
+            anahata: {
+                name: 'Anahata',
+                subtitle: 'Heart Chakra · 4th Energy Center',
+                color: '#4ade80',
+                shadow: 'rgba(74,222,128,0.4)',
+                description: 'Anahata is the bridge between the earthly lower chakras and the spiritual upper ones. As the center of unconditional love, empathy, and healing, it governs our capacity to give and receive love freely. A balanced heart chakra radiates warmth, forgiveness, and deep compassion for all beings.',
+                grid: [
+                    { label: 'Element', value: 'Air' },
+                    { label: 'Location', value: 'Chest' },
+                    { label: 'Mantra', value: 'YAM' },
+                    { label: 'Frequency', value: '639 Hz' },
+                ],
+                tags: ['Love', 'Compassion', 'Forgiveness', 'Empathy', 'Healing'],
+                balance: {
+                    good: 'Unconditional love, high empathy, emotional equilibrium, and nourishing relationships.',
+                    bad: 'Deep-seated jealousy, unresolved grief, emotional pain, and difficulty trusting others.'
+                },
+                howTo: [
+                    'Daily gratitude journaling',
+                    'Loving-kindness (Metta) meditation',
+                    'Conscious deep breathing exercises',
+                    'Unprompted acts of kindness and self-love'
+                ]
+            },
+            manipura: {
+                name: 'Manipura',
+                subtitle: 'Solar Plexus Chakra · 3rd Energy Center',
+                color: '#facc15',
+                shadow: 'rgba(250,204,21,0.4)',
+                description: 'Manipura, meaning "city of jewels," is the seat of personal power, willpower, and self-confidence. Located in the solar plexus, it fuels your drive, discipline, and sense of identity. When aligned, it gives you the courage to pursue your purpose and the inner fire to transform challenges into growth.',
+                grid: [
+                    { label: 'Element', value: 'Fire' },
+                    { label: 'Location', value: 'Abdomen' },
+                    { label: 'Mantra', value: 'RAM' },
+                    { label: 'Frequency', value: '528 Hz' },
+                ],
+                tags: ['Power', 'Confidence', 'Willpower', 'Discipline', 'Identity'],
+                balance: {
+                    good: 'Robust self-confidence, intrinsic motivation, and strong, decisive action.',
+                    bad: 'Crippling low self-esteem, anger issues, obsessive control issues, or chronic indecisiveness.'
+                },
+                howTo: [
+                    'Core-strengthening physical exercises',
+                    'Setting and strictly achieving micro-goals',
+                    'Safe daily sunlight exposure',
+                    'Empowering positive affirmations'
+                ]
+            },
+            svadhisthana: {
+                name: 'Svadhisthana',
+                subtitle: 'Sacral Chakra · 2nd Energy Center',
+                color: '#f97316',
+                shadow: 'rgba(249,115,22,0.4)',
+                description: 'Svadhisthana is the wellspring of creativity, sensuality, and emotional fluidity. Located in the sacral area, it governs your relationship with pleasure, passion, and the flow of life energy. A balanced sacral chakra allows you to embrace joy, express creativity freely, and experience deep emotional intimacy.',
+                grid: [
+                    { label: 'Element', value: 'Water' },
+                    { label: 'Location', value: 'Pelvis' },
+                    { label: 'Mantra', value: 'VAM' },
+                    { label: 'Frequency', value: '417 Hz' },
+                ],
+                tags: ['Creativity', 'Sensuality', 'Emotion', 'Pleasure', 'Passion'],
+                balance: {
+                    good: 'Unblocked creative flow, healthy emotional processing, and deeply satisfying relationships.',
+                    bad: 'Persistent guilt, emotional instability, creative blocks, and a general lack of passion.'
+                },
+                howTo: [
+                    'Engaging in pure creative play (art, music)',
+                    'Dancing or fluid, expressive movement',
+                    'Spending therapeutic time near water',
+                    'Practicing emotional vulnerability'
+                ]
+            },
+            muladhara: {
+                name: 'Muladhara',
+                subtitle: 'Root Chakra · 1st Energy Center',
+                color: '#ef4444',
+                shadow: 'rgba(239,68,68,0.4)',
+                description: 'Muladhara is the foundation of the entire chakra system, anchoring your energy to the earth. It governs your sense of safety, belonging, and physical survival. When balanced, you feel secure, grounded, and financially and emotionally stable. When imbalanced, it manifests as fear, anxiety, insecurity, and lack of focus.',
+                grid: [
+                    { label: 'Element', value: 'Earth' },
+                    { label: 'Location', value: 'Base' },
+                    { label: 'Mantra', value: 'LAM' },
+                    { label: 'Frequency', value: '396 Hz' },
+                ],
+                tags: ['Grounding', 'Safety', 'Stability', 'Survival', 'Foundation'],
+                balance: {
+                    good: 'Feeling profoundly secure, physically grounded, and capable of handling life\'s stresses.',
+                    bad: 'Constant underlying fear, high anxiety, deep insecurity, and feeling unmoored.'
+                },
+                howTo: [
+                    'Walking barefoot on natural earth (earthing)',
+                    'Lower-body focused physical exercise',
+                    'Consuming grounding root vegetables',
+                    'Meditation focusing heavily on physical presence'
+                ]
+            }
+        };
+
+        function openModal(key) {
+            const c = chakras[key];
+            const overlay = document.getElementById('modal-overlay');
+            const card = document.getElementById('modal-card');
+            document.getElementById('modal-accent-bar').style.backgroundColor = c.color;
+            const circle = document.getElementById('modal-circle');
+            circle.textContent = c.name.substring(0, 1);
+            circle.style.backgroundColor = c.color;
+            circle.style.boxShadow = `0 8px 32px ${c.shadow}`;
+            document.getElementById('modal-title').textContent = c.name;
+            document.getElementById('modal-subtitle').textContent = c.subtitle;
+            document.getElementById('modal-description').textContent = c.description;
+            document.getElementById('modal-grid').innerHTML = c.grid.map(item => `
+                <div class="bg-white/[0.02] border border-white/5 rounded-xl p-3 sm:p-4">
+                    <div class="text-[10px] sm:text-xs tracking-widest uppercase text-slate-500 mb-1">${item.label}</div>
+                    <div class="text-sm font-medium text-slate-200">${item.value}</div>
+                </div>
+            `).join('');
+            document.getElementById('modal-tags').innerHTML = c.tags.map(t =>
+                `<span class="px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-xs text-slate-300 font-medium tracking-wide">${t}</span>`
+            ).join('');
+            document.getElementById('modal-balance-good').textContent = c.balance.good;
+            document.getElementById('modal-balance-bad').textContent = c.balance.bad;
+            document.getElementById('modal-howto-list').innerHTML = c.howTo.map(item => `
+                <div class="flex items-start gap-3 bg-white/[0.02] border border-white/5 rounded-xl p-3 sm:p-4">
+                    <iconify-icon icon="solar:star-fall-minimalistic-linear" class="text-lg text-slate-400 mt-0.5 shrink-0"></iconify-icon>
+                    <span class="text-sm text-slate-300 font-light">${item}</span>
+                </div>
+            `).join('');
+
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            card.classList.remove('translate-y-8', 'scale-95', 'opacity-0');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModalBtn() {
+            const overlay = document.getElementById('modal-overlay');
+            const card = document.getElementById('modal-card');
+            
+            card.classList.add('translate-y-8', 'scale-95', 'opacity-0');
+            setTimeout(() => {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                document.body.style.overflow = '';
+            }, 200);
+        }
+        function closeModal(e) {
+            if (e.target === document.getElementById('modal-overlay')) {
+                closeModalBtn();
+            }
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeModalBtn();
+        });
+    </script>
+
+</body>
+</html>
